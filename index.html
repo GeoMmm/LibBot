@@ -15,7 +15,7 @@ const FBID = urlParams.get('FBID');
 var message="";
 </script>
 Thank you for your feedback!<BR>
-<script>
+<script type="text/javascript">
 if (likert=="1") document.write("Sorry you're unhappy");
 if (likert=="3") document.write("Cheer up!");
 if (likert=="5") document.write("I'm glad you're happy");
@@ -31,7 +31,7 @@ if (likert=="5") document.write("I'm glad you're happy");
        <textarea name="message" rows="3" cols="30"></textarea><br>
       <input type="submit" value="Send Feedback"><br>
   </form>
-  <script>
+  <script type="text/javascript">
     document.getElementById("user").value = user;
     document.getElementById("servname").value = servname;
     document.getElementById("servtype").value = servtype;
