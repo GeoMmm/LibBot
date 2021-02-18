@@ -22,7 +22,7 @@ if (likert=="5") document.write("I'm glad you're happy");
 </script>
 <BR>Enter more info here and click submit to send your rating to the LRC<BR><BR>
     <form name="feedback" id="feedback" action="https://prod-32.westeurope.logic.azure.com:443/workflows/dbd1867136824192aa94431ef8319b7c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vrmv7Fe8WjjUhJdr0TQ3fHz5aC25YH3S4wCF9iEYb-c">
-      Enter your rating (1-5) <input type="text" name="Likert"><br><br>
+      Enter your rating (1-5) <input type="text" id="likert" name="likert"><br><br>
       <input type="hidden" name="user" id="user">
       <input type="hidden" name="servname" id="servname">
      <input type="hidden" name="servtype" id="servtype">
@@ -32,12 +32,11 @@ if (likert=="5") document.write("I'm glad you're happy");
       <input type="submit" value="Send Feedback"><br>
   </form>
   <script type="text/javascript">
-    var f=document.forms['feedback'];
-    f.elements("user").value = user;
-    f.elements("servname").value = servname;
-    f.elements("servtype").value = servtype;
-    f.elements("likert").value = likert;
-    f.elements("FBID").value = FBID;
+    document.getElementById("user").value = user;
+    document.getElementById("servname").value = servname;
+    document.getElementById("servtype").value = servtype;
+    document.getElementById("likert").value = likert;
+    document.getElementById("FBID").value = FBID;
       </script>  
     
     
