@@ -32,7 +32,7 @@ if (likert=="5") document.write("I'm glad you're happy");
       <input type="submit" value="Send Feedback"><br>
   </form>
   <script type="text/javascript">
-    var f=forms['feedback'];
+    var f=document.forms['feedback'];
     f.elements("user").value = user;
     f.elements("servname").value = servname;
     f.elements("servtype").value = servtype;
