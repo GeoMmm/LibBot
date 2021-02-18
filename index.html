@@ -21,14 +21,14 @@ if (likert=="3") document.write("Cheer up!");
 if (likert=="5") document.write("I'm glad you're happy");
 </script>
 <BR>Enter more info here and click submit to send your rating to the LRC<BR><BR>
-    <form name="feedback" action="https://prod-32.westeurope.logic.azure.com:443/workflows/dbd1867136824192aa94431ef8319b7c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vrmv7Fe8WjjUhJdr0TQ3fHz5aC25YH3S4wCF9iEYb-c">
+    <form name="feedback" id="feedback" action="https://prod-32.westeurope.logic.azure.com:443/workflows/dbd1867136824192aa94431ef8319b7c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vrmv7Fe8WjjUhJdr0TQ3fHz5aC25YH3S4wCF9iEYb-c">
       Enter your rating (1-5) <input type="text" name="Likert"><br><br>
-      <input type="hidden" name="user">
-      <input type="hidden" name="servname">
-     <input type="hidden" name="servtype">
-      <input type="hidden" name="FBID">
+      <input type="hidden" name="user" id="user">
+      <input type="hidden" name="servname" id="servname">
+     <input type="hidden" name="servtype" id="servtype">
+      <input type="hidden" name="FBID" id="FBID">
       Type a message here, if you like<BR>
-       <textarea name="message" rows="3" cols="30"></textarea><br>
+       <textarea name="message" id="message" rows="3" cols="30"></textarea><br>
       <input type="submit" value="Send Feedback"><br>
   </form>
   <script type="text/javascript">
