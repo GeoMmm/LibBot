@@ -60,12 +60,11 @@ if (likert=="3") document.write("Cheer up!");
 if (likert=="5") document.write("I'm glad you're happy");
 </script>
 <BR>Enter more info here and click submit to send your rating to the LRC<BR><BR>
-    <form name="feedback" id="feedback" onaction="postit();">
       Enter your rating (1-5) <input type="text" id="likert" name="likert"><br><br>
       Type a message here, if you like<BR>
        <textarea name="message" id="message" rows="3" cols="30"></textarea><br>
-      <input type="submit" value="Send Feedback"><br>
-  </form>
+      <input type="submit" value="Send Feedback" onclick="postit();"><br>
+
   <script type="text/javascript">
     document.getElementById("likert").value = likert;
       </script>  
