@@ -20,4 +20,24 @@ if (likert=="1") document.write("Sorry you're unhappy");
 if (likert=="3") document.write("Cheer up!");
 if (likert=="5") document.write("I'm glad you're happy");
 </script>
-
+<BR>Enter more info here and click submit to send your rating to the LRC<BR><BR>
+    <form action="https://prod-32.westeurope.logic.azure.com:443/workflows/dbd1867136824192aa94431ef8319b7c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vrmv7Fe8WjjUhJdr0TQ3fHz5aC25YH3S4wCF9iEYb-c">
+    <input type="text" name="Likert"><br>
+      <input type="hidden" name="user"><br>
+      <input type="hidden" name="servname"><br>
+     <input type="hidden" name="servtype"><br>
+      <input type="hidden" name="FBID"><br>
+      Type a message here, if you like<BR>
+       <textarea name="message" rows="3" cols="30"></textarea><br>
+      <input type="submit" value="Send Feedback"><br>
+  </form>
+  <script>
+    document.getElementById("user").value = user;
+    document.getElementById("servname").value = servname;
+    document.getElementById("servtype").value = servtype;
+    document.getElementById("likert").value = likert;
+    document.getElementById("FBID").value = FBID;
+      </script>  
+    
+    
+    
