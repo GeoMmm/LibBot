@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the Document</title>
+  </head>
+  <body>
+    <script>
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const user = urlParams.get('user');
+const likert = urlParams.get('likert');
+const ServiceName = urlParams.get('servname');
+const ServiceType = urlParams.get('servtype');
+const FBID = urlParams.get('FBID');
+var message="";
+</script>
+Thank you for your feedback!<BR>
+<script>
+if (likert=="1") document.write("Sorry you're unhappy");
+if (likert=="3") document.write("Cheer up!");
+if (likert=="5") document.write("I'm glad you're happy");
+</script>
+
