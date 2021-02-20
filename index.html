@@ -1,30 +1,66 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <head>
     <title>Feedback to LRC</title>
-    
-
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
         var message="";
-        var user="";
         var likert="";
-        var servtype="";
-        var servname="";
         var FBID="";
-        
+      var thedlg;
+	  
+var opt={
+    hide: 'slide',
+	show: 'slide',
+	autoOpen: false,
+      modal:true,
+	  position: {
+my: "center top",
+at: "center top",
+of: window,
+collision: "none"
+},
+buttons: {
+Ok:function() {
+$(this).dialog("close"); 
+			} 
+		}
+};
+
+	
 function postit()
 {
+thedlg=$("#loading").dialog(opt).dialog("open");
   message=document.getElementById("message").value;
   likert=document.getElementById("likert").value;
-var payload = "{\r\n  \"user\":\"" + user + "\" ,\r\n  \"servtype\": \""+ servtype + "\" ,\r\n  \"servname\": \""+ servname + "\" ,\r\n  \"FBID\": \""+ FBID + "\" ,\r\n  \"message\": \""+ message + "\" ,\r\n  \"likert\": \""+ likert + "\"\r\n}";
+var payload = "{\r\n   \"likert\": \""+ likert + "\",\r\n \"FBID\": \""+ FBID + "\" ,\r\n  \"message\": \""+ message + "\" \r\n }";
 var settings = {
   "async": true,
   "crossDomain": true,
   "url": "https://prod-32.westeurope.logic.azure.com:443/workflows/dbd1867136824192aa94431ef8319b7c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vrmv7Fe8WjjUhJdr0TQ3fHz5aC25YH3S4wCF9iEYb-c",
   "method": "POST",
-  
+    beforeSend: function(){
+			console.log("beforesend");
+			thedlg=$("#loading").dialog(opt).dialog("open");
+			$('.ui-dialog-buttonpane button:contains("Ok")').button().hide();
+           thedlg.html("<p>Sending Rating</b>...</p>");
+        },
+        success: function(data) {
+		console.log("success: "+data.responseText);
+            thedlg.html(data.responseText);
+			$('.ui-dialog-buttonpane button:contains("Ok")').button().show();
+			},
+			
+		error: function(data,statustext) {
+		console.log("error: "+data.responseText);
+            thedlg.html(data.responseText);
+			$('.ui-dialog-buttonpane button:contains("Ok")').button().show();
+			},
+
      dataType: "json",
 	 
   "headers": {
@@ -41,29 +77,28 @@ $.ajax(settings);
 
 
 </script>
+
   </head>
-  <body>
+  <body onload="postit();">
+
 <script type="text/javascript">
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-user = urlParams.get('user');
 likert = urlParams.get('likert');
-servname = urlParams.get('servname');
-servtype = urlParams.get('servtype');
 FBID = urlParams.get('FBID');
 var message="";
 </script>
-Thank you for your feedback!<BR>
+<b>Thank you for providing feedback</b><BR>
 <script type="text/javascript">
-if (likert=="1") document.write("Sorry you're unhappy");
-if (likert=="3") document.write("Cheer up!");
-if (likert=="5") document.write("I'm glad you're happy");
+if (likert=="1") document.write("You gave a rating of 1. Sorry you're unhappy");
+if (likert=="3") document.write("You gave a rating of 3. I understand you have mixed feelings!");
+if (likert=="5") document.write("You gave a rating of 5. Thank you!");
 </script>
-<BR>Enter more info here and click submit to send your rating to the LRC<BR><BR>
+<BR>If you like, take a minute to provide a more accurate rating and send a message to the LRC<BR><BR>
       Enter your rating (1-5) <input type="text" id="likert" name="likert"><br><br>
       Type a message here, if you like<BR>
        <textarea name="message" id="message" rows="3" cols="30"></textarea><br>
-      <input type="submit" value="Send Feedback" onclick="postit();"><br>
+      <input type="submit" value="Update your feedback" onclick="postit();"><br>
 
   <script type="text/javascript">
     document.getElementById("likert").value = likert;
@@ -71,3 +106,5 @@ if (likert=="5") document.write("I'm glad you're happy");
     
     
     
+  <div id="loading" title="Sending Feedback"> 
+</div>
