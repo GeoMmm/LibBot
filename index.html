@@ -39,13 +39,13 @@ var settings = {
 		console.log("success: "+data.responseText);
 		document.getElementById("StatusMessage").innerHTML=data.responseText;
 		document.getElementById("ReviewForm").innerHTML="<HR><BR><BR>If you like, take a minute to provide a more accurate rating and send a message to the LRC<BR><BR>Enter your rating (1-5) <input type=\"text\" id=\"likert\" name=\"likert\"><br><br>Type a message here, if you like<BR><textarea name=\"message\" id=\"message\" rows=\"3\" cols=\"30\"></textarea><br><input type=\"submit\" value=\"Update your feedback\" onclick=\"postit(true);\"><br>";
-
+		document.getElementById("likert").value = likert;
         },				
 		error: function(data,statustext) {
 		console.log("error: "+data.responseText);
 		document.getElementById("StatusMessage").innerHTML=data.responseText;
 		document.getElementById("ReviewForm").innerHTML="<HR><BR><BR>If you like, take a minute to provide a more accurate rating and send a message to the LRC<BR><BR>Enter your rating (1-5) <input type=\"text\" id=\"likert\" name=\"likert\"><br><br>Type a message here, if you like<BR><textarea name=\"message\" id=\"message\" rows=\"3\" cols=\"30\"></textarea><br><input type=\"submit\" value=\"Update your feedback\" onclick=\"postit(true);\"><br>";
-
+		document.getElementById("likert").value = likert;
 			},
 
      dataType: "json",
@@ -70,8 +70,6 @@ FBID = urlParams.get('FBID');
 var message="";
 
 postit(false);
-
-document.getElementById("likert").value = likert;
 
 }
 
