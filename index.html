@@ -28,7 +28,7 @@ if (likert=="5") document.getElementById("Rating").innerHTML="You gave a rating 
 
 var payload = "{\r\n   \"likert\": \""+ likert + "\",\r\n \"FBID\": \""+ FBID + "\" ,\r\n  \"message\": \""+ message + "\" \r\n }";
 var settings = {
-  "async": false,
+  "async": true,
   "crossDomain": true,
   "url": "https://prod-32.westeurope.logic.azure.com:443/workflows/dbd1867136824192aa94431ef8319b7c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vrmv7Fe8WjjUhJdr0TQ3fHz5aC25YH3S4wCF9iEYb-c",
   "method": "POST",
