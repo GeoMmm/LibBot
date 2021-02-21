@@ -38,14 +38,13 @@ var settings = {
         success: function(data) {
 		console.log("success: "+data.responseText);
 		document.getElementById("StatusMessage").innerHTML=data.responseText;
-		document.getElementById("ReviewForm").innerHTML="<HR><BR><BR>If you like, take a minute to provide a more accurate rating and send a message to the LRC<BR><BR>Enter your rating (1-5) <input type=\"text\" id=\"likert\" name=\"likert\"><br><br>Type a message here, if you like<BR><textarea name=\"message\" id=\"message\" rows=\"3\" cols=\"30\"></textarea><br><input type=\"submit\" value=\"Update your feedback\" onclick=\"postit(true);\"><br>";
-		document.getElementById("likert").value = likert;
+		document.getElementById('ReviewForm').style.display='block';
         },				
 		error: function(data,statustext) {
 		console.log("error: "+data.responseText);
 		document.getElementById("StatusMessage").innerHTML=data.responseText;
-		document.getElementById("ReviewForm").innerHTML="<HR><BR><BR>If you like, take a minute to provide a more accurate rating and send a message to the LRC<BR><BR>Enter your rating (1-5) <input type=\"text\" id=\"likert\" name=\"likert\"><br><br>Type a message here, if you like<BR><textarea name=\"message\" id=\"message\" rows=\"3\" cols=\"30\"></textarea><br><input type=\"submit\" value=\"Update your feedback\" onclick=\"postit(true);\"><br>";
-		document.getElementById("likert").value = likert;
+		document.getElementById('ReviewForm').style.display='block';
+
 			},
 
      dataType: "json",
@@ -71,6 +70,9 @@ var message="";
 
 postit(false);
 
+
+document.getElementById("likert").value = likert;
+
 }
 
 </script>
@@ -83,7 +85,12 @@ postit(false);
 <h2 name="Rating" id="Rating">&nbsp;</h2>   
 <BR>
 <h2 name="StatusMessage" id="StatusMessage">&nbsp;</h2>   
-<div id="loading" title="Reporting back"> </div>    
+<div id="loading">&nbsp;</div>
+<div name="ReviewForm" id="ReviewForm" visibility="hidden">        
+<HR><BR><BR>If you like, take a minute to provide a more accurate rating and send a message to the LRC<BR><BR>Enter your rating (1-5) <input type="text" id="likert" name="likert"><br><br>Type a message here, if you like<BR><textarea name="message" id="message" rows="3" cols="30"></textarea><br><input type="submit" value="Update your feedback" onclick="postit(true);"><br>
+</div>
+
 <script>
+document.getElementById('ReviewForm').style.display='none';
 startit();
 </script>
