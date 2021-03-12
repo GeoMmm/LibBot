@@ -72,12 +72,12 @@ document.getElementById("likert").value = likert;
 }
 
 function rateit(l) {
-  document.getElementById("1star").style.borderColor=l==1?"#00FF00":"#FFFFFF";
-  document.getElementById("2star").style.borderColor=l==2?"#00FF00":"#FFFFFF";
-  document.getElementById("3star").style.borderColor=l==3?"#00FF00":"#FFFFFF";
-  document.getElementById("4star").style.borderColor=l==4?"#00FF00":"#FFFFFF";
-  document.getElementById("5star").style.borderColor=l==5?"#00FF00":"#FFFFFF";
-  document.getElementByID("likert").value=l;
+  document.getElementById("1star").style.borderColor=l==1?"#D0D0D0":"#FFFFFF";
+  document.getElementById("2star").style.borderColor=l==2?"#D0D0D0":"#FFFFFF";
+  document.getElementById("3star").style.borderColor=l==3?"#D0D0D0":"#FFFFFF";
+  document.getElementById("4star").style.borderColor=l==4?"#D0D0D0":"#FFFFFF";
+  document.getElementById("5star").style.borderColor=l==5?"#D0D0D0":"#FFFFFF";
+  document.getElementByID("likert").value=string(l);
   document.getElementById("Rating").innerHTML="Click the button to update your rating";
   document.getElementById("StatusMessage").innerHTML="";
 }
