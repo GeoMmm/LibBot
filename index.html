@@ -72,7 +72,7 @@ document.getElementById("likert").value = likert;
 }
 
 function rateit(l) {
-	alert(l);
+alert(l);
   document.getElementById(l + "star").style.borderColor="#00FF00";
   document.getElementByID("likert").value=l;
 }
@@ -90,11 +90,11 @@ function rateit(l) {
 <div id="loading">&nbsp;</div>
 <div name="ReviewForm" id="ReviewForm" visibility="hidden">        
 <HR><BR><BR>If you like, change your rating and send a message to the LRC, or just close this window.<BR><BR>
-<a href="#" onclick="javascript:rateit(1);return(false);"><img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493250/icons/likert%20scale/1.png" name="1star" id="1star"></a>
-<a href="#" onclick="javascript:rateit(2);"><img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/2.png" name="2star" id="2star"></a> 
-<a href="#" onclick="javascript:rateit(3);"><img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/3.png" name="3star" id="3star"></a>
-<a href="#" onclick="javascript:rateit(4);"><img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/4.png" name="4star" id="4star"></a>
-<a href="#" onclick="javascript:rateit(5);"><img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/5.png" name="5star" id="5star"></a>
+<img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493250/icons/likert%20scale/1.png" name="1star" id="1star" onclick="rateit(1);">
+<img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/2.png" name="2star" id="2star" onclick="rateit(2);">
+<img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/3.png" name="3star" id="3star" onclick="rateit(3);">
+<img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/4.png" name="4star" id="4star" onclick="rateit(4);">
+<img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/5.png" name="5star" id="5star" onclick="rateit(5);">
 <br><br>Type a message here, if you like<BR><textarea name="message" id="message" rows="3" cols="30"></textarea><br><input type="submit" value="Update your feedback" onclick="postit(true);"><br>
 <input type="hidden" id="likert" name="likert">
 </div>
