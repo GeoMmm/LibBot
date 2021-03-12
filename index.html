@@ -77,7 +77,7 @@ function rateit(l) {
   document.getElementById("3star").style.borderColor=l==3?"#D0D0D0":"#FFFFFF";
   document.getElementById("4star").style.borderColor=l==4?"#D0D0D0":"#FFFFFF";
   document.getElementById("5star").style.borderColor=l==5?"#D0D0D0":"#FFFFFF";
-  document.getElementByID("likert").value=string(l);
+  document.getElementByID("likert").value = string(l);
   document.getElementById("Rating").innerHTML="Click the button to update your rating";
   document.getElementById("StatusMessage").innerHTML="";
 }
