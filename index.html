@@ -86,7 +86,7 @@ function rateit(l) {
 
   </head>
 <body>
-
+<input type="hidden" id="likert" name="likert" value="0">
 <H1 name="ErrorMessage" id="ErrorMessage">This does not work with Android or IE browsers.<BR>Please use Chrome, Safari, Edge or Firefox.</h1>
 <BR>
 <h2 name="Rating" id="Rating">&nbsp;</h2>   
@@ -101,7 +101,7 @@ function rateit(l) {
 <img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/4.png" style="border:1px solid white" name="4star" id="4star" onclick="rateit(4);">
 <img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/5.png" style="border:1px solid white" name="5star" id="5star" onclick="rateit(5);">
 <br><br>Type a message here, if you like<BR><textarea name="message" id="message" rows="3" cols="30"></textarea><br><input type="submit" value="Update your feedback" onclick="postit(true);"><br>
-<input type="hidden" id="likert" name="likert" value="0">
+
 </div>
 
 <script>
