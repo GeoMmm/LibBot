@@ -4,7 +4,121 @@
   <head>
     <title>Feedback to LRC</title>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css"><!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title>Feedback to LRC</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+        var message="";
+        var likert="";
+        var FBID="";
+	  
+	
+function postit(button)
+{
+if (button) {
+  message=document.getElementById("message").value;
+  likert=document.getElementById("likert").value;
+ }
+if (likert=="1") document.getElementById("Rating").innerHTML="You gave a rating of 1. Sorry you're unhappy";
+if (likert=="2") document.getElementById("Rating").innerHTML="You gave a rating of 2. Sorry you're not very happy";
+if (likert=="3") document.getElementById("Rating").innerHTML="You gave a rating of 3. I understand you have mixed feelings!";
+if (likert=="4") document.getElementById("Rating").innerHTML="You gave a rating of 4. Thank you!";;
+if (likert=="5") document.getElementById("Rating").innerHTML="You gave a rating of 5. Awesome!";
+
+
+var payload = "{\r\n   \"likert\": \""+ likert + "\",\r\n \"FBID\": \""+ FBID + "\" ,\r\n  \"message\": \""+ message + "\" \r\n }";
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://prod-32.westeurope.logic.azure.com:443/workflows/dbd1867136824192aa94431ef8319b7c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vrmv7Fe8WjjUhJdr0TQ3fHz5aC25YH3S4wCF9iEYb-c",
+  "method": "POST",
+    beforeSend: function(){
+		document.getElementById("StatusMessage").innerHTML="Sending your rating to the LRC. This will take a few seconds...";
+        },
+        success: function(data) {
+		console.log("success: "+data.responseText);
+		document.getElementById("StatusMessage").innerHTML=data.responseText;
+		document.getElementById('ReviewForm').style.display='block';
+        },				
+		error: function(data,statustext) {
+		console.log("error: "+data.responseText);
+		document.getElementById("StatusMessage").innerHTML=data.responseText;
+		document.getElementById('ReviewForm').style.display='block';
+
+			},
+
+     dataType: "json",
+	 
+  "headers": {
+    "Content-Type": "application/json",
+    "cache-control": "no-cache"
+  },
+  "processData": false,
+  "data": payload
+};
+
+$.ajax(settings);
+}
+
+function startit() {
+document.getElementById("ErrorMessage").innerHTML="Thank you for providing feedback"
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+likert = urlParams.get('likert');
+FBID = urlParams.get('FBID');
+var message="";
+postit(false);
+document.getElementById("likert").value = likert;
+}
+
+function rateit(l) {
+  document.getElementById("likert").value = l;
+  document.getElementById("Rating").innerHTML="Click the button to update your rating";
+  document.getElementById("StatusMessage").innerHTML="";
+}
+
+</script> 
+
+  </head>
+<body>
+<input type="hidden" id="likert" name="likert" value="0">
+<H1 name="ErrorMessage" id="ErrorMessage">This does not work with Android or IE browsers.<BR>Please use Chrome, Safari, Edge or Firefox.</h1>
+<BR>
+<h2 name="Rating" id="Rating">&nbsp;</h2>   
+<BR>
+<h2 name="StatusMessage" id="StatusMessage">&nbsp;</h2>   
+<div id="loading">&nbsp;</div>
+<div name="ReviewForm" id="ReviewForm" visibility="hidden">        
+<HR><BR><BR>If you like, change your rating and send a message to the LRC, or just close this window.<BR><BR>
+<img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493250/icons/likert%20scale/1.png" style="border:1px solid white" name="1star" id="1star" onclick="rateit(1);">
+<img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/2.png" style="border:1px solid white" name="2star" id="2star" onclick="rateit(2);">
+<img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/3.png" style="border:1px solid white" name="3star" id="3star" onclick="rateit(3);">
+<img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/4.png" style="border:1px solid white" name="4star" id="4star" onclick="rateit(4);">
+<img src="https://res.cloudinary.com/wfplrc/image/upload/v1615493251/icons/likert%20scale/5.png" style="border:1px solid white" name="5star" id="5star" onclick="rateit(5);">
+<br><br>Type a message here, if you like<BR><textarea name="message" id="message" rows="3" cols="30"></textarea><br><input type="submit" value="Update your feedback" onclick="postit(true);"><br>
+
+</div>
+
+<script>
+  var e;
+  e  = document.getElementById("likert").value + "star";
+  alert(e);
+  document.getElementById("1star").style.borderColor="#FFFFFF";
+  document.getElementById("2star").style.borderColor="#FFFFFF";
+  document.getElementById("3star").style.borderColor="#FFFFFF";
+  document.getElementById("4star").style.borderColor="#FFFFFF";
+  document.getElementById("5star").style.borderColor="#FFFFFF";
+  document.getElementById(e).style.borderColor="#D0D0D0";	
+document.getElementById('ReviewForm').style.display='none';
+startit();
+</script>
+
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
