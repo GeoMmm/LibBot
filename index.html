@@ -186,7 +186,7 @@ document.getElementById("likert").value = likert;
 }
 
 function rateit(l) {
-  document.getElementById("likert").value = string(l);
+  document.getElementById("likert").value = "" + l;
   document.getElementById("Rating").innerHTML="Click the button to update your rating";
   document.getElementById("StatusMessage").innerHTML="";
 }
@@ -215,7 +215,7 @@ function rateit(l) {
 
 <script>
   startit();
-  var e = string(l) + "star";
+  var e = "" + l + "star";
   document.getElementById("1star").style.borderColor="#FFFFFF";
   document.getElementById("2star").style.borderColor="#FFFFFF";
   document.getElementById("3star").style.borderColor="#FFFFFF";
