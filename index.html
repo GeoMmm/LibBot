@@ -79,10 +79,22 @@ document.getElementById("likert").value = likert;
 
 function rateit(l) {
   document.getElementById("likert").value = l;
-  document.getElementById("Rating").innerHTML="Click the button to update your rating";
+  document.getElementById("Rating").innerHTML="Click the button to send your update";
   document.getElementById("StatusMessage").innerHTML="";
+  borders();
 }
 
+function borders() {
+  var e;
+  e  = document.getElementById("likert").value + "star";
+  document.getElementById("1star").style.borderColor="#FFFFFF";
+  document.getElementById("2star").style.borderColor="#FFFFFF";
+  document.getElementById("3star").style.borderColor="#FFFFFF";
+  document.getElementById("4star").style.borderColor="#FFFFFF";
+  document.getElementById("5star").style.borderColor="#FFFFFF";
+  document.getElementById(e).style.borderColor="#D0D0D0";	
+  document.getElementById('ReviewForm').style.display='none';	
+}	
 </script> 
 
   </head>
@@ -107,13 +119,5 @@ function rateit(l) {
 
 <script>
   startit();
-  var e;
-  e  = document.getElementById("likert").value + "star";
-  document.getElementById("1star").style.borderColor="#FFFFFF";
-  document.getElementById("2star").style.borderColor="#FFFFFF";
-  document.getElementById("3star").style.borderColor="#FFFFFF";
-  document.getElementById("4star").style.borderColor="#FFFFFF";
-  document.getElementById("5star").style.borderColor="#FFFFFF";
-  document.getElementById(e).style.borderColor="#D0D0D0";	
-  document.getElementById('ReviewForm').style.display='none';
+  borders();
 </script>
