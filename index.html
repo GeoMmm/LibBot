@@ -38,7 +38,7 @@ var settings = {
   "url": "https://prod-32.westeurope.logic.azure.com:443/workflows/dbd1867136824192aa94431ef8319b7c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vrmv7Fe8WjjUhJdr0TQ3fHz5aC25YH3S4wCF9iEYb-c",
   "method": "POST",
     beforeSend: function(){
-		document.getElementById("StatusMessage").innerHTML="Sending your rating to the LRC...";
+		document.getElementById("StatusMessage").innerHTML="Sending your review to the LRC...";
         },
         success: function(data) {
 		console.log("success: "+data.responseText);
