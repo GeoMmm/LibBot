@@ -18,15 +18,16 @@ function postit(button)
 {
 if (button) {
   message=document.getElementById("message").value;
+  document.getElementById("ErrorMessage").innerHTML="Thank you for providing feedback"}
   likert=document.getElementById("likert").value;
   document.getElementById('ReviewForm').style.display='none';
  }
 
 if (isNaN(likert)) 
-{	document.getElementById("ErrorMessage").innerHTML="Doesn't look like a valid number. Let's see what the Bot replies..."}
+{	document.getElementById("ErrorMessage").innerHTML="Doesn't look like a valid number. I'll send it anyway, let's see what the Bot replies..."}
 else
-{		if (parseInt(likert)<1 || parseInt(likert)>5) document.getElementById("ErrorMessage").innerHTML="Doesn't look between 1 and 5. Let's see what the Bot replies...";
-	if (parseFloat(likert)!==parseInt(likert)) document.getElementById("ErrorMessage").innerHTML="Doesn't look like an integer. Let's see what the Bot replies...";
+{		if (parseInt(likert)<1 || parseInt(likert)>5) document.getElementById("ErrorMessage").innerHTML="Doesn't look like a valid number. I'll send it anyway, let's see what the Bot replies...";
+	if (parseFloat(likert)!==parseInt(likert)) document.getElementById("ErrorMessage").innerHTML="Doesn't look like an integer. I'll send it anyway, let's see what the Bot replies...";
 }
 
 
@@ -89,10 +90,10 @@ document.getElementById("likert").value = likert;
 <h1 name="ErrorMessage" id="ErrorMessage">Thank you for providing feedback</h1>
 <br>
 
-<h2 name="StatusMessage" id="StatusMessage">George MUAMMAR, thank you for review.<br><br>We have received 1 ratings for this, with an overall average of 0 out of 5.</h2>   
+<h2 name="StatusMessage" id="StatusMessage">George MUAMMAR, thank you for taking time to review the service .<br><br>We have received 1 ratings for this, with an overall average of 0 out of 5.</h2>   
 <div id="loading">&nbsp;</div>
 <div name="ReviewForm" id="ReviewForm" visibility="hidden" style="display: block;">        
-<hr><br><br>If you like, take a minute to provide a more accurate rating and send a message to the LRC<br><br>Enter your rating (1-5) <input type="text" id="likert" name="likert"><br><br>Type a message here, if you like<br><textarea name="message" id="message" rows="3" cols="30"></textarea><br><input type="submit" value="Update your feedback" onclick="postit(true);"><br>
+<hr><br><br>If you like, take a minute to provide a more accurate rating and send a message to the LRC<br><br>Enter your rating (1-5) <input type="text" id="likert" name="likert" size="1" maxlength="1"><br><br>Type a message here, if you like<br><textarea name="message" id="message" rows="3" cols="30"></textarea><br><input type="submit" value="Update your feedback" onclick="postit(true);"><br>
 </div>
 
 <script>
