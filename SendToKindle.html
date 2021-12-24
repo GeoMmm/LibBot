@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>LRC Send to Kindle</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+        var message="";
+        var title="";
+      	var user="";
+        var url="";
+	  
+	
+function postit(button)
+{
+if (button) {
+  message=document.getElementById("message").value;
+  document.getElementById("ErrorMessage").innerHTML="In a few minutes you should receive an email with the confirmation of the action";
+ }
+
+var payload = "{\r\n   \"email\": \""+ user + "\",\r\n \"url\": \""+ url + "\",\r\n \"title\": \""+ title + "\" \r\n }";
+console.log("payload: " + payload);
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://prod-186.westeurope.logic.azure.com:443/workflows/b899140cc5b34626970e554365cc6aaa/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=adyCPpxbgQBUim21uy5Xlm-pYdJ93Pd77wvvFN9h8BY",
+  "method": "POST",
+    beforeSend: function(){
+		document.getElementById("StatusMessage").innerHTML="Sending your request to the LRC...";
+        },
+        success: function(data) {
+		console.log("success: "+data.responseText);
+		document.getElementById("StatusMessage").innerHTML=data.responseText;
+		document.getElementById('ReviewForm').style.display='block';
+        },				
+		error: function(data,statustext) {
+		console.log("error: "+data.responseText);
+		document.getElementById("StatusMessage").innerHTML=data.responseText;
+		document.getElementById('ReviewForm').style.display='block';
+
+			},
+
+     dataType: "json",
+	 
+  "headers": {
+    "Content-Type": "application/json",
+    "cache-control": "no-cache"
+  },
+  "processData": false,
+  "data": payload
+};
+
+$.ajax(settings);
+}
+
+function startit() {
+document.getElementById("ErrorMessage").innerHTML="Just a sec...."
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+email = urlParams.get('email');
+url = urlParams.get('url');
+title = urlParams.get('title');
+var message="";
+
+postit(false);
+
+}
+
+</script>
+
+  </head>
+<body>
+<table border="0"><tr><td><img src="https://res.cloudinary.com/wfplrc/image/upload/c_scale,w_225/v1634070601/LRC%20Website/WFPnewlogo_english_standard_BLUE_RGB.png"></td><td><font size="6" face="Open Sans">Library and Research Centre<BR>Feedback System</td></tr></table>
+<h1 name="ErrorMessage" id="ErrorMessage">Sending to Kindle</h1>
+<br>
+
+<h2 name="StatusMessage" id="StatusMessage">I'm sending your file to the LRC Bot.</h2>   
+<div id="loading">&nbsp;</div>
+<div name="ReviewForm" id="ReviewForm" visibility="hidden" style="display: block;">        
+</div>
+
+<script>
+//document.getElementById('ReviewForm').style.display='none';
+startit();
+</script>
+</body></html>
