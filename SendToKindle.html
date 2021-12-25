@@ -11,15 +11,14 @@
         var title="";
       	var email="";
         var url="";
-	  
-/*	
+	 
+	
 function postit(button)
 {
 if (button) {
   message=document.getElementById("message").value;
   document.getElementById("ErrorMessage").innerHTML="In a few minutes you should receive an email with the confirmation of the action";
  }
-*/
 
 var payload = "{\r\n   \"email\": \""+ email + "\",\r\n \"url\": \""+ url + "\",\r\n \"title\": \""+ title + "\" \r\n }";
 console.log("payload: " + payload);
