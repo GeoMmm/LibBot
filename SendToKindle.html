@@ -12,13 +12,14 @@
       	var email="";
         var url="";
 	  
-	
+/*	
 function postit(button)
 {
 if (button) {
   message=document.getElementById("message").value;
   document.getElementById("ErrorMessage").innerHTML="In a few minutes you should receive an email with the confirmation of the action";
  }
+*/
 
 var payload = "{\r\n   \"email\": \""+ email + "\",\r\n \"url\": \""+ url + "\",\r\n \"title\": \""+ title + "\" \r\n }";
 console.log("payload: " + payload);
@@ -33,12 +34,10 @@ var settings = {
         success: function(data) {
 		console.log("success: "+data.responseText);
 		document.getElementById("StatusMessage").innerHTML=data.responseText;
-		document.getElementById('ReviewForm').style.display='block';
         },				
 		error: function(data,statustext) {
 		console.log("error: "+data.responseText);
 		document.getElementById("StatusMessage").innerHTML=data.responseText;
-		document.getElementById('ReviewForm').style.display='block';
 
 			},
 
@@ -56,7 +55,8 @@ $.ajax(settings);
 }
 
 function startit() {
-document.getElementById("ErrorMessage").innerHTML="Just a sec...."
+document.getElementById("ErrorMessage").innerHTML="";
+document.getElementById("StatusMessage").innerHTML="Just a sec...."
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 email = urlParams.get('email');
@@ -83,7 +83,7 @@ postit(false);
 </div>
 
 <script>
-//document.getElementById('ReviewForm').style.display='none';
+
 startit();
 </script>
 </body></html>
