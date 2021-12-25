@@ -18,7 +18,7 @@ function postit(button)
 if (button) {
   message=document.getElementById("message").value;
   document.getElementById("ErrorMessage").innerHTML="In a few minutes you should receive an email with the confirmation of the action";
-  document.getElementById('ReviewForm').style.display='none';
+//  document.getElementById('ReviewForm').style.display='none';
  }
 
 
@@ -35,12 +35,12 @@ var settings = {
         success: function(data) {
 		console.log("success: "+data.responseText);
 		document.getElementById("StatusMessage").innerHTML=data.responseText;
-		document.getElementById('ReviewForm').style.display='block';
+//		document.getElementById('ReviewForm').style.display='block';
         },				
 		error: function(data,statustext) {
 		console.log("error: "+data.responseText);
 		document.getElementById("StatusMessage").innerHTML=data.responseText;
-		document.getElementById('ReviewForm').style.display='block';
+//		document.getElementById('ReviewForm').style.display='block';
 
 			},
 
@@ -83,7 +83,6 @@ postit(false);
 <h2 name="StatusMessage" id="StatusMessage">I'm sending your file to the LRC Bot.</h2>   
 <div id="loading">&nbsp;</div>
 <div name="ReviewForm" id="ReviewForm" visibility="hidden" style="display: block;">  
-<input type="submit" value="Close this window" onclick="window.open('','_self').close();">      
 </div>
 
 <script>
