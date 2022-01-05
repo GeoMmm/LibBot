@@ -39,7 +39,7 @@ var settings = {
         },				
 	error: function(data,statustext) {
 		console.log("error: "+data.responseText);
-		document.getElementById("StatusMessage").innerHTML='No response received. You should be contacted by the Library team shortly.';
+		document.getElementById("StatusMessage").innerHTML=data.responseText;
 //		document.getElementById('ReviewForm').style.display='block';
 
 			},
