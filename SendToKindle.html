@@ -32,7 +32,7 @@ var settings = {
     beforeSend: function(){
 		document.getElementById("StatusMessage").innerHTML="Sending your request to the LRC...";
         },
-        success: function(data) {
+        success: function(data,statustext) {
 		console.log("success: "+data.responseText);
 		document.getElementById("StatusMessage").innerHTML=data.responseText;
 //		document.getElementById('ReviewForm').style.display='block';
