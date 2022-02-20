@@ -1,141 +1,26 @@
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Author: George Mu'ammar george.muammar@wfp.org -->  
-    <title>LRC Send to Kindle</title>
+    <title>Feedback to LRC</title>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
-        var message="";
-        var title="";
-      	var email="";
-        var url="";
-		var lang="";
-	  
-
-function postit(button)
-{
-if (button) {
-  message=document.getElementById("message").value;
-  document.getElementById("ErrorMessage").innerHTML=Msgs[lang][3];
-//  document.getElementById('ReviewForm').style.display='none';
- }
-
-
-var payload = "{\r\n   \"email\": \""+ email + "\",\r\n \"url\": \""+ url + "\",\r\n \"title\": \""+ title + "\" \r\n }";
-console.log("payload: " + payload);
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://prod-186.westeurope.logic.azure.com:443/workflows/b899140cc5b34626970e554365cc6aaa/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=adyCPpxbgQBUim21uy5Xlm-pYdJ93Pd77wvvFN9h8BY",
-  "method": "POST",
-    beforeSend: function(){
-		document.getElementById("StatusMessage").innerHTML=Msgs[lang][2];
-        },
-        success: function(data,statustext) {
-		console.log("success: "+data.responseText);
-		document.getElementById("StatusMessage").innerHTML=data.responseText;
-//		document.getElementById('ReviewForm').style.display='block';
-        },				
-	error: function(data,statustext) {
-		console.log("error: "+data.responseText);
-		document.getElementById("StatusMessage").innerHTML=data.responseText;
-//		document.getElementById('ReviewForm').style.display='block';
-
-			},
-
-     dataType: "json",
-	 
-  "headers": {
-    "Content-Type": "application/json",
-    "cache-control": "no-cache"
-  },
-  "processData": false,
-  "data": payload
-};
-
-$.ajax(settings);
-}
-
-function startit() {
-document.getElementById("ErrorMessage").innerHTML="";
-document.getElementById("StatusMessage").innerHTML=Msgs[lang][4];
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-email = urlParams.get('email');
-url = urlParams.get('path');
-title = urlParams.get('title');
-var message="";
-
-const langs=["ar":0, "en":1, "fr":2, "sp":3];
-lang = langs[urlParams.get('ln')];
-if (typeof lang == "undefined") lang=1;
-
-var Msgs = [];
-Msgs[1]=
-[
-"Library and Research Centre<BR>Send to Kindle"   	// title
-,"Sending to Kindle"								// Sending errorMessage
-,"I'm sending your file to the LRC Bot."				// start StatusMessage
-,"In a few minutes you should receive an email with the confirmation of the action"	// SentOk errorMessage
-,"Just a few seconds..."			// sending StatusMessage
-];
-
-// To be translated
-Msgs[2]=
-[
-"Library and Research Centre<BR>Send to Kindle FR",   	// title
-,"Sending to Kindle"								// Sending errorMessage
-,"I'm sending your file to the LRC Bot."				// start StatusMessage
-,"In a few minutes you should receive an email with the confirmation of the action"	// SentOk errorMessage
-,"Just a few seconds..."			// sending StatusMessage];
-]
-Msgs[3]=
-[
-"Library and Research Centre<BR>Send to Kindle SP",   	// title
-,"Sending to Kindle"								// Sending errorMessage
-,"I'm sending your file to the LRC Bot."				// start StatusMessage
-,"In a few minutes you should receive an email with the confirmation of the action"	// SentOk errorMessage
-,"Just a few seconds..."			// sending StatusMessage];
-]
-Msgs[0]=
-[
-"Library and Research Centre<BR>Send to Kindle AR",   	// title
-,"Sending to Kindle"								// Sending errorMessage
-,"I'm sending your file to the LRC Bot."				// start StatusMessage
-,"In a few minutes you should receive an email with the confirmation of the action"	// SentOk errorMessage
-,"Just a few seconds..."			// sending StatusMessage];
-]
-var MainTitleDiv = document.getElementById("MainTitle");
-MainTitleDiv.innerHTML = Msgs[lang][0];
-
-var ErrorMessageDiv = document.getElementById("ErrorMessage");
-ErrorMessageDiv.innerHTML = Msgs[lang][1];
-
-var StatusMessageDiv = document.getElementById("StatusMessage");
-StatusMessageDiv.innerHTML = Msgs[lang][2];
-
-
-
-
-
-postit(false);
-
-}
-
+ var _0x3194=['5|2|1|3|0|6|4','message','Thank\x20you\x20for\x20providing\x20feedback','likert','{\x0d\x0a\x20\x20\x20\x22likert\x22:\x20\x22','\x22,\x0d\x0a\x20\x22SID\x22:\x20\x22','\x22,\x0d\x0a\x20\x22UID\x22:\x20\x22','Sending\x20your\x20review\x20to\x20the\x20LRC...','ReviewForm','https://prod-32.westeurope.logic.azure.com:443/workflows/dbd1867136824192aa94431ef8319b7c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vrmv7Fe8WjjUhJdr0TQ3fHz5aC25YH3S4wCF9iEYb-c','json','application/json','EgybZ','xbQgZ','payload:\x20','iQREE','getElementById','innerHTML','TIrDv','qzJSG','AlWYC','tREAX','QhCIB','Doesn\x27t\x20look\x20like\x20an\x20integer.\x20I\x27ll\x20send\x20it\x20anyway,\x20let\x27s\x20see\x20what\x20the\x20Bot\x20replies...','kTCac','value','style','display','JrJjg','FpCws','gkJzv','qkkjt','rAxCu','yVeGE','HPYJF','ajax','StatusMessage','QCrLm','DUFlN','tKjMB','NMRWr','JyTYo','LeEhd','nzXKB','responseText','fEVee','zLzjf','Ouzmm','log','iLebq','error:\x20','hFxlZ','KkkRP','UID','ErrorMessage','GaUDc','location','search','get','SID','xRVoc','PqDGD'];var _0x4d5b=function(_0x12c8a1,_0x6043c3){_0x12c8a1=_0x12c8a1-0x0;var _0x3a94a4=_0x3194[_0x12c8a1];return _0x3a94a4;};var message='';var likert='';var SID='';var UID='';function postit(_0x4ea050){var _0x597150={'EgybZ':_0x4d5b('0x0'),'xbQgZ':function(_0xa94ad2,_0x169473){return _0xa94ad2+_0x169473;},'iQREE':function(_0x7b76eb,_0x308f2e){return _0x7b76eb(_0x308f2e);},'AlWYC':'ErrorMessage','TIrDv':'Doesn\x27t\x20look\x20like\x20a\x20valid\x20number.\x20I\x27ll\x20send\x20it\x20anyway,\x20let\x27s\x20see\x20what\x20the\x20Bot\x20replies...','qzJSG':function(_0x42dee9,_0x197cf7){return _0x42dee9>_0x197cf7;},'tREAX':function(_0x385330,_0x3815a6){return _0x385330!==_0x3815a6;},'QhCIB':function(_0x19887f,_0x3b5b75){return _0x19887f(_0x3b5b75);},'clCZs':_0x4d5b('0x1'),'ChIwE':_0x4d5b('0x2'),'kTCac':_0x4d5b('0x3'),'JrJjg':'none','FpCws':function(_0x3a0b56,_0x55b48c){return _0x3a0b56+_0x55b48c;},'gkJzv':function(_0x321603,_0x116b5b){return _0x321603+_0x116b5b;},'qkkjt':function(_0x1c24e1,_0x2bc3eb){return _0x1c24e1+_0x2bc3eb;},'OnjVJ':function(_0x58e308,_0x241e62){return _0x58e308+_0x241e62;},'rAxCu':function(_0xe0109b,_0x4eceb8){return _0xe0109b+_0x4eceb8;},'fwpzF':_0x4d5b('0x4'),'yVeGE':_0x4d5b('0x5'),'jxCPd':_0x4d5b('0x6'),'HPYJF':'\x22\x20\x0d\x0a\x20}','yUuwM':_0x4d5b('0x7'),'QCrLm':'success:\x20','DUFlN':_0x4d5b('0x8'),'yijBG':'block','tKjMB':function(_0x4b9855,_0x5d73ed){return _0x4b9855+_0x5d73ed;},'NMRWr':_0x4d5b('0x9'),'JyTYo':'POST','hFxlZ':_0x4d5b('0xa'),'KkkRP':_0x4d5b('0xb')};var _0x50e0df=_0x597150[_0x4d5b('0xc')]['split']('|'),_0x3bde98=0x0;while(!![]){switch(_0x50e0df[_0x3bde98++]){case'0':console['log'](_0x597150[_0x4d5b('0xd')](_0x4d5b('0xe'),_0x65e7e3));continue;case'1':if(_0x597150[_0x4d5b('0xf')](isNaN,likert)){document[_0x4d5b('0x10')](_0x597150['AlWYC'])[_0x4d5b('0x11')]=_0x597150[_0x4d5b('0x12')];}else{if(_0x597150[_0x4d5b('0xf')](parseInt,likert)<0x1||_0x597150[_0x4d5b('0x13')](_0x597150['iQREE'](parseInt,likert),0x5))document[_0x4d5b('0x10')](_0x597150[_0x4d5b('0x14')])[_0x4d5b('0x11')]=_0x597150[_0x4d5b('0x12')];if(_0x597150[_0x4d5b('0x15')](_0x597150[_0x4d5b('0x16')](parseFloat,likert),_0x597150[_0x4d5b('0x16')](parseInt,likert)))document[_0x4d5b('0x10')](_0x597150[_0x4d5b('0x14')])[_0x4d5b('0x11')]=_0x4d5b('0x17');}continue;case'2':if(_0x4ea050){message=document[_0x4d5b('0x10')](_0x597150['clCZs'])['value'];document['getElementById'](_0x597150['AlWYC'])['innerHTML']=_0x597150['ChIwE'];likert=document[_0x4d5b('0x10')](_0x597150[_0x4d5b('0x18')])[_0x4d5b('0x19')];document[_0x4d5b('0x10')](_0x4d5b('0x8'))[_0x4d5b('0x1a')][_0x4d5b('0x1b')]=_0x597150[_0x4d5b('0x1c')];}continue;case'3':var _0x65e7e3=_0x597150[_0x4d5b('0x1d')](_0x597150[_0x4d5b('0x1d')](_0x597150[_0x4d5b('0x1e')](_0x597150[_0x4d5b('0x1f')](_0x597150[_0x4d5b('0x1f')](_0x597150['OnjVJ'](_0x597150[_0x4d5b('0x20')](_0x597150[_0x4d5b('0x20')](_0x597150['fwpzF'],likert),_0x597150[_0x4d5b('0x21')]),SID),_0x597150['jxCPd']),UID),'\x22\x20,\x0d\x0a\x20\x20\x22message\x22:\x20\x22'),message),_0x597150[_0x4d5b('0x22')]);continue;case'4':$[_0x4d5b('0x23')](_0x1eb228);continue;case'5':var _0x22d804={'fEVee':_0x4d5b('0x24'),'LeEhd':_0x597150['yUuwM'],'nzXKB':_0x597150[_0x4d5b('0x25')],'zLzjf':_0x597150[_0x4d5b('0x26')],'Ouzmm':_0x597150['yijBG'],'iLebq':function(_0xcb8549,_0x365f31){return _0x597150[_0x4d5b('0x27')](_0xcb8549,_0x365f31);}};continue;case'6':var _0x1eb228={'async':!![],'crossDomain':!![],'url':_0x597150[_0x4d5b('0x28')],'method':_0x597150[_0x4d5b('0x29')],'beforeSend':function(){document[_0x4d5b('0x10')](_0x22d804['fEVee'])['innerHTML']=_0x22d804[_0x4d5b('0x2a')];},'success':function(_0x14d4ec){console['log'](_0x22d804[_0x4d5b('0x2b')]+_0x14d4ec[_0x4d5b('0x2c')]);document[_0x4d5b('0x10')](_0x22d804[_0x4d5b('0x2d')])[_0x4d5b('0x11')]=_0x14d4ec[_0x4d5b('0x2c')];document[_0x4d5b('0x10')](_0x22d804[_0x4d5b('0x2e')])[_0x4d5b('0x1a')][_0x4d5b('0x1b')]=_0x22d804[_0x4d5b('0x2f')];},'error':function(_0x346c3e,_0x4be2d8){console[_0x4d5b('0x30')](_0x22d804[_0x4d5b('0x31')](_0x4d5b('0x32'),_0x346c3e[_0x4d5b('0x2c')]));document[_0x4d5b('0x10')](_0x4d5b('0x24'))[_0x4d5b('0x11')]=_0x346c3e[_0x4d5b('0x2c')];document['getElementById'](_0x22d804[_0x4d5b('0x2e')])[_0x4d5b('0x1a')][_0x4d5b('0x1b')]=_0x22d804[_0x4d5b('0x2f')];},'dataType':_0x597150[_0x4d5b('0x33')],'headers':{'Content-Type':_0x597150[_0x4d5b('0x34')],'cache-control':'no-cache'},'processData':![],'data':_0x65e7e3};continue;}break;}}function startit(){var _0x1bb496={'GaUDc':_0x4d5b('0x2'),'UVJbs':'likert','xRVoc':_0x4d5b('0x35'),'PqDGD':function(_0x421a91,_0x5e8226){return _0x421a91(_0x5e8226);}};document[_0x4d5b('0x10')](_0x4d5b('0x36'))[_0x4d5b('0x11')]=_0x1bb496[_0x4d5b('0x37')];const _0x33ed27=window[_0x4d5b('0x38')][_0x4d5b('0x39')];const _0x61b18e=new URLSearchParams(_0x33ed27);likert=_0x61b18e[_0x4d5b('0x3a')](_0x1bb496['UVJbs']);SID=_0x61b18e[_0x4d5b('0x3a')](_0x4d5b('0x3b'));UID=_0x61b18e['get'](_0x1bb496[_0x4d5b('0x3c')]);var _0x3294be='';_0x1bb496[_0x4d5b('0x3d')](postit,![]);document['getElementById'](_0x4d5b('0x3'))[_0x4d5b('0x19')]=likert;}
 </script>
 
   </head>
 <body>
-<table border="0"><tr><td><img src="https://res.cloudinary.com/wfplrc/image/upload/c_scale,w_225/v1634070601/LRC%20Website/WFPnewlogo_english_standard_BLUE_RGB.png">
-	</td><td><font size="6" face="Open Sans"><div name="MainTitle" id="MainTitle">Library and Research Centre<BR>Send to Kindle</div></td></tr></table>
-<h1 name="ErrorMessage" id="ErrorMessage">Sending to Kindle</h1>
+<table border="0"><tr><td><img src="https://res.cloudinary.com/wfplrc/image/upload/c_scale,w_225/v1634070601/LRC%20Website/WFPnewlogo_english_standard_BLUE_RGB.png"></td><td><font size="6" face="Open Sans">Library and Research Centre<BR>Feedback System</td></tr></table>
+<h1 name="ErrorMessage" id="ErrorMessage">Thank you for providing feedback</h1>
 <br>
 
-<h2 name="StatusMessage" id="StatusMessage">I'm sending your file to the LRC Bot.</h2>   
+<h2 name="StatusMessage" id="StatusMessage">Your browser does not support Javascript. Sorry, this won't work</h2>   
 <div id="loading">&nbsp;</div>
-<div name="ReviewForm" id="ReviewForm" visibility="hidden" style="display: block;">  
+<div name="ReviewForm" id="ReviewForm" visibility="hidden" style="display: block;">        
+<hr><br><br>If you like, take a minute to provide a more accurate rating and send a message to the LRC<br><br>Enter your rating (1-5) <input type="text" id="likert" name="likert" size="1" maxlength="1"> (1=not good, 5=very good)
+	<br><br>Type a message here, if you like<br><textarea name="message" id="message" rows="3" cols="30"></textarea><br><input type="submit" value="Update your feedback" onclick="postit(true);"><br>
 </div>
 
 <script>
