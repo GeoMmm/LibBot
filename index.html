@@ -19,8 +19,15 @@
 <h2 name="StatusMessage" id="StatusMessage">Your browser does not support Javascript. Sorry, this won't work</h2>   
 <div id="loading">&nbsp;</div>
 <div name="ReviewForm" id="ReviewForm" visibility="hidden" style="display: block;">        
-<hr><br><br>If you like, take a minute to provide a more accurate rating and send a message to the LRC<br><br>Enter your rating (1-5) <input type="text" id="likert" name="likert" size="1" maxlength="1"> (1=not good, 5=very good)
-	<br><br>Type a message here, if you like<br><textarea name="message" id="message" rows="3" cols="30"></textarea><br><input type="submit" value="Update your feedback" onclick="postit(true);"><br>
+<hr><br><br>If you like, take a minute to provide a more accurate rating and send a message to the LRC<br><br>Enter your rating (1-5) 
+<select id="likert" name="likert" size="1">
+<option value="5">5 - Excellent</option>
+<option value="4">4 - Good</option>
+<option value="3">3 - Mixed Feelings</option>
+<option value="2">2 - Bad</option>
+<option value="1">1 - Terrible</option>
+</select>
+	<br><br>Send us a message. Why did you chose this rating?<br><textarea name="message" id="message" rows="3" cols="30"></textarea><br><input type="submit" value="Update your feedback" onclick="postit(true);"><br>
 </div>
 
 <script>
