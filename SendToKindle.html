@@ -59,14 +59,6 @@ $.ajax(settings);
 }
 
 function startit() {
-document.getElementById("ErrorMessage").innerHTML="";
-document.getElementById("StatusMessage").innerHTML=Msgs[lang][4];
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-email = urlParams.get('email');
-url = urlParams.get('path');
-title = urlParams.get('title');
-var message="";
 
 //const langs={ar:0, en:1, fr:2, sp:3};
 //lang = langs[urlParams.get('ln')];
@@ -112,6 +104,16 @@ Msgs[0]=
 ,"In a few minutes you should receive an email with the confirmation of the action"	// SentOk errorMessage
 ,"Just a few seconds..."			// sending StatusMessage
 ];
+
+document.getElementById("ErrorMessage").innerHTML="";
+document.getElementById("StatusMessage").innerHTML=Msgs[lang][4];
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+email = urlParams.get('email');
+url = urlParams.get('path');
+title = urlParams.get('title');
+var message="";
+
 
 var MainTitleDiv = document.getElementById("MainTitle");
 MainTitleDiv.innerHTML = Msgs[lang][0];
