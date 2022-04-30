@@ -74,42 +74,44 @@ lang= ((urlParams.get('ln')=="ar")?0:((urlParams.get('ln')=="en")?1:((urlParams.
 //if (typeof lang == "undefined") lang=1;
 
 var Msgs = [];
+	
+Msgs[1]="aaa";
 Msgs[1]=
-{
+[
 "Library and Research Centre<BR>Send to Kindle"   	// title
 ,"Sending to Kindle"								// Sending errorMessage
 ,"I'm sending your file to the LRC Bot."				// start StatusMessage
 ,"In a few minutes you should receive an email with the confirmation of the action"	// SentOk errorMessage
 ,"Just a few seconds..."			// sending StatusMessage
-};
+];
 
 // To be translated
 Msgs[2]=
-{
+[
 "Library and Research Centre<BR>Send to Kindle",   	// title
 ,"Sending to Kindle"								// Sending errorMessage
 ,"I'm sending your file to the LRC Bot."				// start StatusMessage
 ,"In a few minutes you should receive an email with the confirmation of the action"	// SentOk errorMessage
 ,"Just a few seconds..."			// sending StatusMessage
-};
+];
 
 Msgs[3]=
-{
+[
 "Library and Research Centre<BR>Send to Kindle",   	// title
 ,"Sending to Kindle"								// Sending errorMessage
 ,"I'm sending your file to the LRC Bot."				// start StatusMessage
 ,"In a few minutes you should receive an email with the confirmation of the action"	// SentOk errorMessage
 ,"Just a few seconds..."			// sending StatusMessage
-};
+];
 
 Msgs[0]=
-{
+[
 "Library and Research Centre<BR>Send to Kindle",   	// title
 ,"Sending to Kindle"								// Sending errorMessage
 ,"I'm sending your file to the LRC Bot."				// start StatusMessage
 ,"In a few minutes you should receive an email with the confirmation of the action"	// SentOk errorMessage
 ,"Just a few seconds..."			// sending StatusMessage
-};
+];
 
 var MainTitleDiv = document.getElementById("MainTitle");
 MainTitleDiv.innerHTML = Msgs[lang][0];
