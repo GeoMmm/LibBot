@@ -68,9 +68,10 @@ url = urlParams.get('path');
 title = urlParams.get('title');
 var message="";
 
-const langs={ar:0, en:1, fr:2, sp:3};
-lang = langs[urlParams.get('ln')];
-if (typeof lang == "undefined") lang=1;
+//const langs={ar:0, en:1, fr:2, sp:3};
+//lang = langs[urlParams.get('ln')];
+lang= ((urlParams.get('ln')=="ar")?0:((urlParams.get('ln')=="en")?1:((urlParams.get('ln')=="fr")?2:((urlParams.get('ln')=="sp")?4:1))))
+//if (typeof lang == "undefined") lang=1;
 
 var Msgs = [];
 Msgs[1]=
