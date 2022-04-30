@@ -68,7 +68,7 @@ url = urlParams.get('path');
 title = urlParams.get('title');
 var message="";
 
-const langs=[ar:0, en:1, fr:2, sp:3];
+const langs={ar:0, en:1, fr:2, sp:3};
 lang = langs[urlParams.get('ln')];
 if (typeof lang == "undefined") lang=1;
 
